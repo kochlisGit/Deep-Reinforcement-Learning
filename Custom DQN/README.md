@@ -35,4 +35,4 @@ and a method for returning a random batch.
 The DQN Algorithm runs very fast, but it is not guaranteed that It will converge fast. You might want to try the Double DQN (DDQN) or even the Multi-Step Double DQN.
 In the image below, You can see how DQN slowly converges in the CartPole-v0 enviroment for 500 episodes.
 
-![DQN-vis](https://github.com/kochlisGit/Deep-Reinforcement-Learning/blob/master/Custom%20DQN/cartpole_dqn_vis.png)
+![DQN-vis](https://github.com/kochlisGit/Deep-Reinforcement-Learning/blob/master/Custom%20DQN/dqn_average_return.png)
