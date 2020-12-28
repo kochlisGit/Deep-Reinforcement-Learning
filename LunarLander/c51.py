@@ -15,7 +15,7 @@ import time
 
 # 1. Creating tf-environments (Train: for training, Eval: For testing)
 train_env = TFPyEnvironment( environment=LunarLander() )
-eval_env = TFPyEnvironment( environment=LunarLander() )
+eval_env = TFPyEnvironment( environment=LunarLander(render=True) )
 
 # 2. Constructing the Categorical QNetworks: Online & Target.
 # Default Activation Function: "relu".
@@ -55,8 +55,8 @@ n_steps = 3
 tau = 0.001
 huber_loss = Huber()
 g = 0.99
-min_q = -20
-max_q = 20
+min_q = -200
+max_q = 200
 
 agent = CategoricalDqnAgent(
     time_step_spec=train_env.time_step_spec(),
