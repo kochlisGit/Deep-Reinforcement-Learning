@@ -9,7 +9,9 @@ class LunarLander(PyEnvironment):
 
     # The "init" function.
     # Defining _action_spec, _observation_spec
-    def __init__(self):
+    def __init__(self, render=False):
+        self._render = render
+        
         self.env = gym.make('LunarLander-v2')
         self._action_spec = BoundedArraySpec(
             shape=(), dtype=np.int32, minimum=0, maximum=self.env.action_space.n-1, name='action'
@@ -41,6 +43,9 @@ class LunarLander(PyEnvironment):
     def _step(self, action_spec):
         if self._done:
             return self._reset()
+
+        if self._render:
+            self.env.render()
 
         action = action_spec.item()
         observation, reward, self._done, _ = self.env.step(action)
